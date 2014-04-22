@@ -8,13 +8,30 @@
 
 # 1. Pseudocode
 
-# What is the input?
-# What is the output? (i.e. What should the code return?)
-# What are the steps needed to solve the problem?
+# I need to define a method called total.
+# total should take a single argument as input
+# total should sum up the contents of an integer array
+# I need to define a method called sentence_maker
+# sentence_maker should accept a single argument
+# it should make an array of strings into a correct sentence.
 
 
-# 2. Initial Solution
 
+# 2. Initial Solution - via Ruby Docs
+
+def total (num_array)
+	num_array.reduce(:+)
+end
+
+def sentence_maker (string_array)
+	string_array[0].capitalize!
+
+	last_word = string_array.last 
+	
+	string_array.pop	
+
+	string_array.join(" ") << " " << last_word << "." 
+end
 
 
 
