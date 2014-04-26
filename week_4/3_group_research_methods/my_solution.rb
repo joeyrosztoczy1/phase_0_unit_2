@@ -50,12 +50,20 @@ end
 
 # Person 4
 def my_array_deletion_method(source, thing_to_delete)
-  #Your code here!
+  source.each do |x|
+  	if x.to_s.split("").include?(thing_to_delete) 
+  		source.delete(x)
+	end
+  end
 end
+ 	
+puts my_array_deletion_method(i_want_pets, "a")
 
 def my_hash_deletion_method(source, thing_to_delete)
-  #Your code here!
+  	source.delete_if { |key, value| key == thing_to_delete }
 end
+
+puts my_hash_deletion_method(my_family_pets_ages, "George")
 
 # Identify and describe the ruby method you implemented. 
 # 
@@ -79,7 +87,7 @@ p my_hash_deletion_method(my_family_pets_ages, "George") == {"Evi" => 8, "Hoobie
 
 # Reflect!
 # 
-# 
-# 
-# 
-# 
+# This was an awesome exercise in looking up documentation and googling like crazy. i don't know any methods in Ruby so pretty much every step of the
+# way was a new journy. Arrays and hashes are both awesome, I am a little more used to working with arrays, and I feel like they probably compute faster
+# and with less CPU, but I could definitely see occational uses for the hash as well. Getting one lines in like the my_has_deletion_method feels 
+# really powerful as well. 
