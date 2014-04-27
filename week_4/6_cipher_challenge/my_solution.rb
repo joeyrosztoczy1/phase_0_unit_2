@@ -28,7 +28,9 @@ def north_korean_cipher(coded_message)
   #           "c" => "y",
   #           "d" => "z"}
 
-    rotate = 22
+
+# REFACTORED FUNCTION
+    rotate = 22 # 22 is equivelant to -4, the same rotation as the hash 
 
     cipher = ('a'..'z').to_a
 
