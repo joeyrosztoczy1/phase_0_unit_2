@@ -19,25 +19,44 @@
 
 # 2. Initial Solution
 class Array
-	def pad!(minimum, pad_value)
+	def pad!(minimum, pad_value = nil)
 		if self.length < minimum then 
-			(minimum - self.length).times do
-				self.push(pad_value)
-			end
+			fill_length = minimum - self.length
+			self.fill(pad_value, self.length, fill_length  )
+		else
+			return self
+		end
+	end
+
+	def pad(minimum, pad_value = nil)
+		if self.length < minimum then 
+			fill_length = minimum - self.length
+			dup.fill(pad_value, self.length, fill_length  )
+		else
+			return self.dup
 		end
 	end
 end
 
-num_array = [1,2,3]
 
-num_array.pad!(5, 2)
 
-num_array.length.times do |i|
-	puts num_array[i]
-end
+
 
 # 3. Refactored Solution
 
 
 
 # 4. Reflection 
+
+# I learned a lot from this lesson. Specifically, that going up the inheritance hierarchy looking for methods can be huge. 
+# I got the destructive method down really quickly, just using array methods that I had used before.
+# The non-destructive one was a dead end for me until I found the object.dup method that returns a shallow copy of the object.
+# Integrating this into the same language as my first method and returning self.dup gave me the power to operate on the 
+# object non destructively! 
+#
+#
+#
+#
+#
+#
+#
