@@ -27,6 +27,8 @@ def north_korean_cipher(coded_message)
             "b" => "x",
             "c" => "y",
             "d" => "z"}
+
+
             
   input.each do |x| # What is #each doing here? 
     #Since input is an array, each is looking at each of the elements within the array
