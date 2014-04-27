@@ -1,50 +1,72 @@
 def north_korean_cipher(coded_message) 
   input = coded_message.downcase.split("") # Check out this method in IRB to see how it works! Also refer to the ruby docs.
   decoded_sentence = []
-  cipher = {"e" => "a", # This is technically a shift of four letters...Can you think of a way to automate this? Is a hash
-            "f" => "b", # the best data structure for this problem? What are the pros and cons of hashes?
-            "g" => "c",
-            "h" => "d",
-            "i" => "e",
-            "j" => "f",
-            "k" => "g",
-            "l" => "h",
-            "m" => "i",
-            "n" => "j",
-            "o" => "k",
-            "p" => "l",
-            "q" => "m",
-            "r" => "n",
-            "s" => "o",
-            "t" => "p",
-            "u" => "q",
-            "v" => "r",
-            "w" => "s",
-            "x" => "t",
-            "y" => "u",
-            "z" => "v",
-            "a" => "w",
-            "b" => "x",
-            "c" => "y",
-            "d" => "z"}
+  # cipher = {"e" => "a", # This is technically a shift of four letters...Can you think of a way to automate this? Is a hash
+  #           "f" => "b", # the best data structure for this problem? What are the pros and cons of hashes?
+  #           "g" => "c",
+  #           "h" => "d",
+  #           "i" => "e",
+  #           "j" => "f",
+  #           "k" => "g",
+  #           "l" => "h",
+  #           "m" => "i",
+  #           "n" => "j",
+  #           "o" => "k",
+  #           "p" => "l",
+  #           "q" => "m",
+  #           "r" => "n",
+  #           "s" => "o",
+  #           "t" => "p",
+  #           "u" => "q",
+  #           "v" => "r",
+  #           "w" => "s",
+  #           "x" => "t",
+  #           "y" => "u",
+  #           "z" => "v",
+  #           "a" => "w",
+  #           "b" => "x",
+  #           "c" => "y",
+  #           "d" => "z"}
 
+    rotate = 22
 
+    cipher = ('a'..'z').to_a
+
+    input.each do |x|
+
+      found_match = false
+
+      cipher.each_index do |y|
+
+        if x == cipher[y] 
+
+          rotate.times do 
+
+            cipher.push cipher.shift
+
+          end
             
-  input.each do |x| # What is #each doing here? 
-    #Since input is an array, each is looking at each of the elements within the array
-    found_match = false # Why would this be assigned to false from the outset? What happens when it's true?
-    #when this is true, we know that a letter has been found in the cipehered (jibberish) code. 
-    cipher.each_key do |y| # What is #each_key doing here?
-      #since ciper is a hash, each_key is looking at each key element 
-      if x == y # What is this comparing? Where is it getting x? Where is it getting y? What are those variables really?
-        #I DONT KNOW! I Think it may be comparing the key(x) to the value (y)<--what's x?
-        puts "I am comparing x and y. X is #{x} and Y is #{y}." 
-        #puts this statement if x==y
-        decoded_sentence << cipher[y]
-        #adds __ to the emoty array decoded_sentence
-        found_match = true
-        #this is true since x=y
-        break # Why is it breaking here?
+          decoded_sentence << cipher[y]
+
+          found_match = true
+
+          break
+
+  # input.each do |x| # What is #each doing here? 
+  #   #Since input is an array, each is looking at each of the elements within the array
+  #   found_match = false # Why would this be assigned to false from the outset? What happens when it's true?
+  #   #when this is true, we know that a letter has been found in the cipehered (jibberish) code. 
+  #   cipher.each_key do |y| # What is #each_key doing here?
+  #     #since ciper is a hash, each_key is looking at each key element 
+  #     if x == y # What is this comparing? Where is it getting x? Where is it getting y? What are those variables really?
+  #       #I DONT KNOW! I Think it may be comparing the key(x) to the value (y)<--what's x?
+  #       puts "I am comparing x and y. X is #{x} and Y is #{y}." 
+  #       #puts this statement if x==y
+  #       decoded_sentence << cipher[y]
+  #       #adds __ to the emoty array decoded_sentence
+  #       found_match = true
+  #       #this is true since x=y
+  #       break # Why is it breaking here?
       elsif x == "@" || x == "#" || x == "$" || x == "%"|| x == "^" || x == "&"|| x =="*" #What the heck is this doing?
         #because these symbols do not translate in our cipher we want to add a space whenever we come across these
         decoded_sentence << " "
@@ -79,6 +101,8 @@ end
 
 
 
+
+
   
 
 
@@ -86,6 +110,7 @@ end
 
 
 # Driver Code:
+
 puts north_korean_cipher("m^aerx%e&gsoi!") == "i want a coke!" #This is driver code and should print true
 # Find out what Kim Jong Un is saying below and turn it into driver code as well. Driver Code statements should always return "true"
 
