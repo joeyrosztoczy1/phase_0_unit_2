@@ -35,11 +35,11 @@ end
 
 # Person 3
 def my_array_sorting_method(source)
-  # Your code here!
+  source.partition{|x| x.is_a? Integer}.map(&:sort)
 end
 
 def my_hash_sorting_method(source)
-  # Your code here!
+  source.sort_by &:last
 end
 
 # Identify and describe the ruby method you implemented. 
