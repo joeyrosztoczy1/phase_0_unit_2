@@ -78,5 +78,13 @@ Proin eget tempus sem. Sed semper augue felis, quis consectetur turpis malesuada
 
 
 # 5. Reflection 
+#
+# My homework array is pretty limitted as I was running out of time towards the end of the week. For future improvements I would first want to be 
+# able to make sure that the index's I was placing the words in were within the scope of the array, and I would probably iterate through for key
+# words like "name" etc to place in the variables. I would also request user input as opposed to passing them in through method parameters like
+# I have above.
+#
+#
+#
 
 
