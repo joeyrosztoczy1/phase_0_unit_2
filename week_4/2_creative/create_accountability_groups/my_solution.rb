@@ -50,5 +50,13 @@ puts @acc_group_u1[1].is_a?(Array)
 
 # 5. Reflection 
 
+# From what I understood about this lesson the wanted us to practice chopping up arrays and spitting them into new ones.
+# I had a couple different ideas, extending the Array class to call a accountability method on the array directly, which I liked the most
+# but didn't seem to quite fit what the directions were asking. I was able to take advantage of the each slice method just like with the 
+# commas challenge. 
+#
+#
+#
+#
 
 
