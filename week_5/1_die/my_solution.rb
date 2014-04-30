@@ -53,3 +53,12 @@ puts die.roll <= 6
 
 
 # 5. Reflection 
+#
+# This was a good exercise to understand how object references are initialized, how parameters get passed through object constructors,
+# and how useful instance variables actually are. I figured out a lot of mistakes I had made trying to extend or create Classes in earlier
+# lessons. It is also fascinating to me that the variable is not actually the object itself, but is called a reference variable and simply
+# acts as a pointer to all the saved information about the particular object it is referencing. Garbage collecting was a very cool insight into
+# what is going on at the deeper-behind the scenes level of Ruby, a subject I am always fascinated by!
+#
+
+
