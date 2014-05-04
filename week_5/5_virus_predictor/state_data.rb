@@ -1,6 +1,11 @@
 #population density is number of people per square mile as of 2012
 #this data is updated every year with estimates from a 10 year census 
 
+# This hash has a key for each one of the 50 states in the US that provides values for the following:
+# population_density, population, region, regional_spread. It uses the rocketHash notation. THis is important
+# because it allows for the keys to be any data value. If you use the js- like syntax symbol: than each symbol is just that
+# a simple element symbol, not a string or integer or anything else.
+
 
 STATE_DATA = {  "Alabama" => {population_density: 94.65, population: 4822023, region: 5, regional_spread: 3},
                 "Alaska" => {population_density: 1.1111, population: 731449, region: 10, regional_spread: 9},

@@ -3,26 +3,43 @@
 # I worked on this challenge [by myself, with: ].
 
 # EXPLANATION OF require_relative
-#
+# Require relative allows you to load another file not in the current document. Require relative in this example loads the file state_data,
+# which allows us to reference all of the information in that particular file. It as a part of the kernel method. It differs from the Require
+# method in that it takes a string as an argument, references the file faster than the name via require, and makes it easy to backtrack to the
+# particular file you are loading. 
 #
 require_relative 'state_data'
 
 class VirusPredictor
 
-  def initialize(state_of_origin, population_density, population, region, regional_spread)
-    @state = state_of_origin
-    @population = population
-    @population_density = population_density
-    @region = region
-    @next_region = regional_spread
+  # This is the initialize method that will initialize the rference variables for class Virus Predicotr. It takes the state and its corresponding 
+  # as input.
+
+  def initialize(state_data, state)
+    @state_data = state_data
+    @state = state
   end
+
+  # This is defining a method virus_effects that produces predicted deaths and the speed of spread of the virus. It defines the inputs
+  # that have an impact on these values.
 
   def virus_effects  #HINT: What is the SCOPE of instance variables?
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
   end
 
-  private  #what is this?  what happens if it were cut and pasted above the virus_effects method
+   def national_report(state_data)
+    state_data.each_key do |value|
+      predicted_deaths(@population_density, @population, @state)
+      speed_of_spread(@population_density, @state)
+    end
+  end
+
+  private  # The private designation in Ruby means that the following methods cannot be explicitly called i.e. foo.bar(x) if bar was private this would
+           # not work.
+
+  # predicted_deaths takes the necessary inputs and runs the calculations on them to predict the deaths by the virus. Depending on the magnitude of the 
+  # population density it will take the population and multiply it by a constant. It also takes state as an argument to reference in the output string.       
 
   def predicted_deaths(population_density, population, state)
     if @population_density >= 200
@@ -40,6 +57,9 @@ class VirusPredictor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
+
+  # speed_of_spread takes population_density and state as inputs. Its output is defined in months. It calculates the speed by applying a 
+  # constant based on the magnitude of the population_density and then prints out that value.
 
   def speed_of_spread(population_density, state) #in months
     speed = 0.0
